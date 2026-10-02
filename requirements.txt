@@ -4,4 +4,4 @@ langchain
 langchain-openai
 python-dotenv
 pytest
-langchain-ollama
+langchain-groq

@@ -1,11 +1,13 @@
-from langchain_ollama import ChatOllama
+import streamlit as st
+from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 
 
-# Connect to the local AI model
-llm = ChatOllama(
-    model="llama3.2:3b",
-    temperature=0
+# Connect to Groq Cloud AI
+llm = ChatGroq(
+    model="openai/gpt-oss-20b",
+    temperature=0,
+    api_key=st.secrets["GROQ_API_KEY"]
 )
 
 
@@ -33,6 +35,7 @@ Provide a structured report containing:
 
 Use simple, clear language.
 """)
+
 
 # Create the AI chain
 chain = prompt | llm
